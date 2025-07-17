@@ -1,0 +1,38 @@
+{
+  "name": "xiaowei-components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "docs:dev": "vuepress dev docs --temp .temp",
+    "docs:build": "vuepress build docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vuepress-reco/vuepress-plugin-extract-code": "^1.0.4",
+    "axios": "0.21.1",
+    "element-ui": "^2.15.14",
+    "lodash": "^4.17.21",
+    "vue": "^2.7.16",
+    "vue-property-decorator": "^9.1.2",
+    "vue-router": "^3.6.5",
+    "vuepress": "^1.9.10",
+    "vuepress-plugin-side-anchor": "^1.0.6",
+    "vuepress-plugin-typescript": "^0.3.1"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.10",
+    "@types/sortablejs": "^1.15.8",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.4.0",
+    "rollup-plugin-copy": "^3.5.0",
+    "sass": "^1.79.4",
+    "sass-loader": "10",
+    "vite": "^5.4.8",
+    "vite-plugin-vue2": "^2.0.3"
+  }
+}
