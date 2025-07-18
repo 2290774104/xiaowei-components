@@ -34,7 +34,7 @@ export default defineConfig((env: ConfigEnv): UserConfig => {
         fileName: 'index',
         formats: ['cjs', 'umd', 'es'],
       },
-      outDir: 'xiaowei-components',
+      outDir: 'dist',
       rollupOptions: {
         // 打包时移除外部依赖
         external: ['vue', 'lodash', 'element-ui'],
@@ -53,9 +53,9 @@ export default defineConfig((env: ConfigEnv): UserConfig => {
             verbose: true,
             hook: 'closeBundle',
             targets: [
-              { src: './README.md', dest: 'xiaowei-components/' },
-              { src: './package.json', dest: 'xiaowei-components/' },
-              { src: './types', dest: 'xiaowei-components/' },
+              { src: './README.md', dest: 'dist/' },
+              { src: './package.json', dest: 'dist/' },
+              { src: './types', dest: 'dist/' },
             ],
           }),
         ],
