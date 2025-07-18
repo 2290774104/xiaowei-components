@@ -1,0 +1,85 @@
+<template>
+  <div>
+    <div>
+      <xw-select v-model="value" :options="options"></xw-select>
+      当前选中的值是：{{ value }}
+    </div>
+    <div>
+      <xw-select
+        v-model="value2"
+        dataType="custom"
+        :netWork="netWork"
+        filterable
+      ></xw-select>
+      当前选中的值是：{{ value2 }}
+    </div>
+    <div>
+      <div>
+        <xw-select
+          v-model="value3"
+          dataType="custom"
+          :netWork="netWork2"
+          filterable
+          lazy
+          multiple
+          @change="handleChange"
+        ></xw-select>
+        当前选中的值是：{{ value3 }}
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import XwSelect from 'component/Select/modules/Select.vue';
+import { Component, Vue } from 'vue-property-decorator';
+import { $get } from '@http';
+
+@Component({ name: 'XwSelectView', components: { XwSelect } })
+export default class XwSelectView extends Vue {
+  public value = '';
+
+  public options = [
+    { label: '选项1', value: '1' },
+    { label: '选项2', value: '2' },
+    { label: '隐藏', value: 'hidden', hidden: true },
+    { label: '禁用', value: 'disabled', disabled: true },
+  ];
+
+  public value2 = '';
+
+  public netWork = {
+    method: (params) => $get('/mock/select.json', params),
+    params: {},
+  };
+
+  created() {}
+
+  public value3 = '';
+
+  public netWork2 = {
+    method: (params) => this.createdOptions(params),
+    params: {},
+  };
+
+  private createdOptions(params) {
+    const data = [];
+    for (let index = 0; index < params.size; index++) {
+      const i = (params.page - 1) * params.size + index + 1;
+      data.push({
+        label: `选项${i}`,
+        value: i,
+      });
+    }
+    return {
+      data: data.filter((i) => i.label.includes(params.name)),
+    };
+  }
+
+  public handleChange(data) {
+    console.log(data);
+  }
+}
+</script>
+
+<style lang="scss" scoped></style>

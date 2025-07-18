@@ -22,7 +22,8 @@ declare interface IComponent {
 @Component({ name: 'HomePage' })
 export default class HomePage extends Vue {
   public components: IComponent[] = [
-    
+    // 表单组件
+    { name: 'Select', path: '/select' },
   ];
 
   public handleClick(component: IComponent) {

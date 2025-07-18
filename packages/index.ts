@@ -1,8 +1,11 @@
 import _Vue, { PluginFunction } from 'vue';
+import XwSelect from './Select';
 import { version } from '../package.json';
 
 // 存储组件列表
 const components = [
+  // Form 表单组件
+  XwSelect,
 ];
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
@@ -33,6 +36,8 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export {
+  // Form 表单组件
+  XwSelect,
 };
 
 export default {

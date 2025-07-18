@@ -10,6 +10,12 @@ const routes: Array<RouteConfig> = [
     name: 'Index',
     component: () => import('@/views/demo/index.vue'),
   },
+  // 表单组件
+  {
+    path: '/select',
+    name: 'Select',
+    component: () => import('@/views/demo/Select/index.vue'),
+  },
 ];
 
 const router = new VueRouter({
