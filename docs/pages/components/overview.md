@@ -1,0 +1,31 @@
+---
+lang: zh-CN
+title: Overview 组件总览
+date: 2024-09-29 15:35:52
+description: 展示 xiaowei-components 提供的所有组件
+---
+
+# Overview 组件总览
+
+## Form 表单组件
+
+<overview-list :list="formList"></overview-list>
+
+## Data 数据展示
+
+<overview-list :list="dataList"></overview-list>
+
+<script>
+export default {
+	data() {
+		return {
+			formList: [
+				{ name: 'Select 下拉选择', src: 'select' },
+			],
+			dataList: [
+				{ name: 'Table 表格', src: 'table' },
+			],
+		}
+	}
+}
+</script>

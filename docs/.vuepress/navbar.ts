@@ -4,6 +4,7 @@ const navbar: NavItem[] = [
   { text: '主页', link: '/' },
   { text: '指南', link: '/pages/guide/installation' },
   { text: '组件', link: '/pages/components/overview' },
+  { text: '更新日志', link: '/pages/changelog' },
 ];
 
 export default navbar;
