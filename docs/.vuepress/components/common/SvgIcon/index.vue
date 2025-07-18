@@ -8,12 +8,14 @@
 import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 import IconSelect from './modules/Select.vue';
+import IconTable from './modules/Table.vue';
 
 // @ts-ignore
 @Component({
   name: 'SvgIcon',
   components: {
     IconSelect,
+    IconTable,
   },
 })
 export default class SvgIcon extends Vue {
