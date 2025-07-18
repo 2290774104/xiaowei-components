@@ -7,11 +7,13 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
+import IconSelect from './modules/Select.vue';
 
 // @ts-ignore
 @Component({
   name: 'SvgIcon',
   components: {
+    IconSelect,
   },
 })
 export default class SvgIcon extends Vue {
