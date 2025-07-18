@@ -16,6 +16,12 @@ const routes: Array<RouteConfig> = [
     name: 'Select',
     component: () => import('@/views/demo/Select/index.vue'),
   },
+  // 数据展示
+  {
+    path: '/table',
+    name: 'Table',
+    component: () => import('@/views/demo/Table/index.vue'),
+  },
 ];
 
 const router = new VueRouter({

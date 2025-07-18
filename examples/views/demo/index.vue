@@ -24,6 +24,8 @@ export default class HomePage extends Vue {
   public components: IComponent[] = [
     // 表单组件
     { name: 'Select', path: '/select' },
+    // 数据展示
+    { name: 'Table', path: '/table' },
   ];
 
   public handleClick(component: IComponent) {
