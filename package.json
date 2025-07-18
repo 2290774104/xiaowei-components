@@ -1,8 +1,8 @@
 {
   "name": "xiaowei-components",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -34,5 +34,12 @@
     "sass-loader": "10",
     "vite": "^5.4.8",
     "vite-plugin-vue2": "^2.0.3"
-  }
+  },
+  "files": [
+    "dist",
+    "packages",
+    "types",
+    "package.json",
+    "README.md"
+  ]
 }
