@@ -1,8 +1,8 @@
 {
   "name": "xiaowei-components",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/index.mjs",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,6 +10,7 @@
     "docs:build": "vuepress build docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "types": "types/index.d.ts",
   "keywords": [],
   "author": "",
   "license": "ISC",
