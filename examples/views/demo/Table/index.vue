@@ -40,11 +40,11 @@ export default class XwTableView extends Vue {
   public data: IData = [
     {
       title: '数据1',
-      date: '',
+      date: '20250722',
     },
     {
       title: '数据2',
-      date: '',
+      date: '20250723',
     },
   ];
 
@@ -52,7 +52,14 @@ export default class XwTableView extends Vue {
     { label: '', prop: 'selection', type: 'selection' },
     { label: '序号', prop: 'index', type: 'index' },
     { label: '标题', prop: 'title' },
-    { label: '日期', prop: 'date' },
+    {
+      label: '日期',
+      prop: 'date',
+      formatter: (row: IData, col: IColumn, val: string, i: number) => {
+        console.log(row, col, val, i);
+        return '2025-07-22';
+      },
+    },
     { label: '插槽', prop: 'slot', customRender: 'slot' },
   ];
 

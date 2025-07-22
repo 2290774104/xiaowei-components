@@ -136,9 +136,11 @@ export default class XwTable extends Vue {
     ]);
     const customScopedSlots = omit(this.$scopedSlots, []);
 
-    const getCellValue = (column, row) => {
+    const getCellValue = (column: IColumn, row: IData, index: number) => {
       const { prop } = column;
-      const value = row[prop];
+      const value = column.formatter
+        ? column.formatter(row, column, row[prop], index)
+        : row[prop];
       return value;
     };
 
@@ -171,7 +173,7 @@ export default class XwTable extends Vue {
                 props,
                 elColumn
               );
-              const cellValue = getCellValue(column, row);
+              const cellValue = getCellValue(column, row, $index);
               let cellContent = cellValue;
               const customRender =
                 customScopedSlots[column.customRender] ||
