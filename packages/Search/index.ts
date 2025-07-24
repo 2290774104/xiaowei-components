@@ -1,4 +1,4 @@
-import Search from './Search.vue';
+import Search from './modules/Search.vue';
 import _Vue from 'vue';
 
 type SFCWithInstall<T> = T & { install(Vue: typeof _Vue): void };
