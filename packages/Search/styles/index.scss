@@ -1,0 +1,13 @@
+.xw-search {
+  .xw-search-btn {
+    display: flex;
+
+    .xw-search-btn-left {
+      width: 100%;
+    }
+
+    .xw-search-btn-right {
+      flex-shrink: 0;
+    }
+  }
+}

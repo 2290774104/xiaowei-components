@@ -22,6 +22,11 @@ const routes: Array<RouteConfig> = [
     name: 'Table',
     component: () => import('@/views/demo/Table/index.vue'),
   },
+  {
+    path: '/search',
+    name: 'Search',
+    component: () => import('@/views/demo/Search/index.vue'),
+  },
 ];
 
 const router = new VueRouter({

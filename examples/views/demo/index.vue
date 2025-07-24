@@ -26,6 +26,7 @@ export default class HomePage extends Vue {
     { name: 'Select', path: '/select' },
     // 数据展示
     { name: 'Table', path: '/table' },
+    { name: 'Search', path: '/search' },
   ];
 
   public handleClick(component: IComponent) {

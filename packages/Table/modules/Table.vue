@@ -7,9 +7,10 @@ import '../directive/height-adaptive';
 import { isBoolean, isObject, uuid } from '../../utils';
 import type { Table, TableColumn } from 'element-ui';
 import type { IColumn, IData, IPagination } from '../types';
+import XwSearch from 'component/Search/modules/Search.vue';
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 
-@Component({ name: 'XwTable' })
+@Component({ name: 'XwTable', components: { XwSearch } })
 export default class XwTable extends Vue {
   // 数据相关
   @Prop({ type: Array, required: true }) readonly data!: IData[];
@@ -123,6 +124,10 @@ export default class XwTable extends Vue {
     }
   }
 
+  private get hasSearch() {
+    return !!this.$slots.search;
+  }
+
   render(h: CreateElement) {
     // 移除表格高度，表格高度使用指令计算，避免高度冲突
     const attrs = omit(this.$attrs, ['height']);
@@ -208,9 +213,12 @@ export default class XwTable extends Vue {
             ></el-table-column>
           );
         });
+        
+    console.log(this.$slots);
 
     return (
       <div class="xw-table">
+        {this.hasSearch && <XwSearch>{this.$slots.search}</XwSearch>}
         <el-table
           ref="ElTableRef"
           data={this.data}

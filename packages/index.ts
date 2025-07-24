@@ -1,6 +1,8 @@
 import _Vue, { PluginFunction } from 'vue';
 import XwSelect from './Select';
 import XwTable from './Table';
+import XwSearch from './Search';
+
 import { version } from '../package.json';
 
 // 存储组件列表
@@ -9,6 +11,7 @@ const components = [
   XwSelect,
   // Data 数据展示
   XwTable,
+  XwSearch,
 ];
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
@@ -43,6 +46,7 @@ export {
   XwSelect,
   // Data 数据展示
   XwTable,
+  XwSearch,
 };
 
 export default {

@@ -1,22 +1,22 @@
 <template>
   <div>
-    <div class="search mb10">
-      <el-form :inline="true" :model="search" class="demo-form-inline">
-        <el-form-item label="名称">
-          <el-input
-            v-model="search.name"
-            size="small"
-            placeholder="名称"
-          ></el-input>
-        </el-form-item>
-      </el-form>
-    </div>
     <xw-table
       :data="data"
       :columns="columns"
       :pagination="pagination"
       :key="key"
     >
+      <template #search="">
+        <el-form :inline="true" :model="search" class="demo-form-inline">
+          <el-form-item label="名称">
+            <el-input
+              v-model="search.name"
+              size="small"
+              placeholder="名称"
+            ></el-input>
+          </el-form-item>
+        </el-form>
+      </template>
       <template #slot="{ column }">
         这里是自定义插槽：{{ column.prop }}
       </template>
@@ -56,7 +56,6 @@ export default class XwTableView extends Vue {
       label: '日期',
       prop: 'date',
       formatter: (row: IData, col: IColumn, val: string, i: number) => {
-        console.log(row, col, val, i);
         return '2025-07-22';
       },
     },
