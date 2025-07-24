@@ -5,6 +5,7 @@
       :columns="columns"
       :pagination="pagination"
       :key="key"
+      @page-change="handlePageChange"
     >
       <template #search="">
         <el-form :inline="true" :model="search" class="demo-form-inline">
@@ -69,6 +70,10 @@ export default class XwTableView extends Vue {
     currentPage: 1,
     pageSize: 10,
   };
+
+  handlePageChange(page) {
+    console.log(page);
+  }
 }
 </script>
 

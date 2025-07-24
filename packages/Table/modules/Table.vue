@@ -36,14 +36,6 @@ export default class XwTable extends Vue {
   // 是否在数据更新后重新布局el-table，可能能解决一些异常
   @Prop({ type: Boolean, default: true }) readonly autoDoLayout?: boolean;
 
-  private get tableInstance() {
-    return this.$refs.ElTableRef as Table | any;
-  }
-
-  private get tableBodyWrapper() {
-    return this.tableInstance.bodyWrapper as HTMLElement;
-  }
-
   // 是否展示分页
   private isShowPag: boolean = false;
 
@@ -97,7 +89,13 @@ export default class XwTable extends Vue {
   @Emit('page-change')
   private emitPageChangeEvent() {
     if (this.autoToTop) {
-      this.tableBodyWrapper.scrollTop = 0;
+      const tableInstance = this.$refs.ElTableRef as Table | any;
+      if (tableInstance) {
+        const tableBodyWrapper = tableInstance.bodyWrapper as HTMLElement;
+        if (tableBodyWrapper) {
+          tableBodyWrapper.scrollTop = 0;
+        }
+      }
     }
     return {
       pageSize: PagStore.pageSize,
@@ -132,17 +130,6 @@ export default class XwTable extends Vue {
         },
       },
     ];
-  }
-
-  // 处理 table 联动 el-form 时出现的表格跳动闪动问题
-  updated() {
-    if (
-      this.autoDoLayout &&
-      this.tableInstance &&
-      this.tableInstance.doLayout
-    ) {
-      this.tableInstance.doLayout();
-    }
   }
 
   private get hasSearch() {
