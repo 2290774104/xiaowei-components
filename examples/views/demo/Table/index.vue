@@ -17,6 +17,9 @@
           </el-form-item>
         </el-form>
       </template>
+      <template #leftOperate>
+        <el-button type="primary" size="small">新增</el-button>
+      </template>
       <template #slot="{ column }">
         这里是自定义插槽：{{ column.prop }}
       </template>

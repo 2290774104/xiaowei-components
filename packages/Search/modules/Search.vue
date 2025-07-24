@@ -17,13 +17,17 @@ export default class XwSearch extends Vue {
   public handleRefresh() {}
 
   render(h: CreateElement) {
-    console.log(this.$slots);
+    console.log(this.$scopedSlots);
 
     return (
       <div class="xw-search">
-        <div v-show={!this.isFold}>{this.$slots.default}</div>
+        <div v-show={!this.isFold}>
+          {this.$scopedSlots.default && this.$scopedSlots.default({})}
+        </div>
         <div class="xw-search-btn">
-          <div class="xw-search-btn-left"></div>
+          <div class="xw-search-btn-left">
+            {this.$scopedSlots.leftOperate && this.$scopedSlots.leftOperate({})}
+          </div>
           <div class="xw-search-btn-right">
             <el-tooltip
               class="item"

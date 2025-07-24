@@ -90,6 +90,10 @@ export default class XwTable extends Vue {
     this.emitPageChangeEvent();
   }
 
+  private handleRefresh() {
+    this.emitPageChangeEvent();
+  }
+
   @Emit('page-change')
   private emitPageChangeEvent() {
     if (this.autoToTop) {
@@ -213,12 +217,20 @@ export default class XwTable extends Vue {
             ></el-table-column>
           );
         });
-        
-    console.log(this.$slots);
+
+    console.log(this.$scopedSlots, this.$slots);
 
     return (
       <div class="xw-table">
-        {this.hasSearch && <XwSearch>{this.$slots.search}</XwSearch>}
+        {this.hasSearch && (
+          <XwSearch
+            onRefresh={this.handleRefresh}
+            scopedSlots={{
+              leftOperate: this.$scopedSlots.leftOperate,
+              default: this.$scopedSlots.search,
+            }}
+          ></XwSearch>
+        )}
         <el-table
           ref="ElTableRef"
           data={this.data}
