@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrap">
     <xw-table
       :data="data"
       :columns="columns"
@@ -72,4 +72,8 @@ export default class XwTableView extends Vue {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.wrap {
+  height: 500px;
+}
+</style>

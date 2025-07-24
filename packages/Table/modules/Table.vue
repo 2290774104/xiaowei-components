@@ -1,6 +1,6 @@
 <script lang="tsx">
 import '../styles/index.scss';
-import { omit } from 'lodash';
+import { get, omit } from 'lodash';
 import PagStore from '../store';
 import { CreateElement } from 'vue';
 import '../directive/height-adaptive';
@@ -105,12 +105,29 @@ export default class XwTable extends Vue {
     };
   }
 
+  private get searchRef() {
+    return this.$refs.search;
+  }
+
+  private get searchHeight() {
+    let height = 0;
+    console.log(this.searchRef, height);
+    return height;
+  }
+
   directives() {
+    // 动态获取搜索栏高度
+    const search = this.$refs.search as XwSearch;
+    let searchHeight = 0;
+    if (search) {
+      searchHeight = (search.$el as HTMLElement).offsetHeight;
+    }
     return [
       {
         name: 'height-adaptive',
         value: {
           height: this.height,
+          topOffset: searchHeight,
           bottomOffset: this.isShowPag ? 42 : 0,
         },
       },
@@ -131,6 +148,9 @@ export default class XwTable extends Vue {
   private get hasSearch() {
     return !!this.$slots.search;
   }
+
+  // 延时加载table，避免表格高度计算错误
+  private renderTable = false;
 
   render(h: CreateElement) {
     // 移除表格高度，表格高度使用指令计算，避免高度冲突
@@ -218,12 +238,15 @@ export default class XwTable extends Vue {
           );
         });
 
-    console.log(this.$scopedSlots, this.$slots);
+    this.$nextTick(() => {
+      this.renderTable = true;
+    });
 
     return (
       <div class="xw-table">
         {this.hasSearch && (
           <XwSearch
+            ref="search"
             onRefresh={this.handleRefresh}
             scopedSlots={{
               leftOperate: this.$scopedSlots.leftOperate,
@@ -231,14 +254,18 @@ export default class XwTable extends Vue {
             }}
           ></XwSearch>
         )}
-        <el-table
-          ref="ElTableRef"
-          data={this.data}
-          {...{ props: attrs, on: $tableListeners }}
-          {...{ directives: this.directives() }}
-        >
-          {renderColumns(this.columns)}
-        </el-table>
+        {this.renderTable ? (
+          <el-table
+            ref="ElTableRef"
+            data={this.data}
+            {...{ props: attrs, on: $tableListeners }}
+            {...{ directives: this.directives() }}
+          >
+            {renderColumns(this.columns)}
+          </el-table>
+        ) : (
+          ''
+        )}
         {this.isShowPag && (
           <el-pagination
             {...{ props: this.defPagination }}

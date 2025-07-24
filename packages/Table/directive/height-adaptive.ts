@@ -3,6 +3,7 @@ import Vue, { DirectiveBinding, ObjectDirective, VNode } from 'vue';
 
 interface DirectiveParameter {
   height: number | string | undefined;
+  topOffset: number;
   bottomOffset: number;
 }
 
@@ -11,13 +12,13 @@ interface TableElement extends HTMLElement {
 }
 
 const getHeight = (binding: DirectiveBinding<DirectiveParameter>): number => {
-  const { height, bottomOffset } = binding.value;
+  const { height, topOffset, bottomOffset } = binding.value;
   // 未设置高度则自适应高度
   if (height) {
     if (typeof height === 'string') {
-      return parseInt(height) - bottomOffset;
+      return parseInt(height) - topOffset - bottomOffset;
     } else {
-      return height - bottomOffset;
+      return height - topOffset - bottomOffset;
     }
   }
   return 0;
@@ -25,11 +26,11 @@ const getHeight = (binding: DirectiveBinding<DirectiveParameter>): number => {
 
 const doResize = (el: TableElement, binding: any, vnode: VNode) => {
   const height = getHeight(binding);
-  const { bottomOffset } = binding.value;
+  const { topOffset, bottomOffset } = binding.value;
   const { componentInstance } = vnode;
   const $table = componentInstance as any;
   if (height === 0) {
-    $table.layout.setHeight(`calc(100% - ${bottomOffset}px)`);
+    $table.layout.setHeight(`calc(100% - ${topOffset + bottomOffset}px)`);
   } else {
     $table.layout.setHeight(height);
   }
