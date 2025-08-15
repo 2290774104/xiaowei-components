@@ -130,14 +130,25 @@ export default class XwSelect extends Vue {
         if (!this.lazy) {
           this.apiOptions = [];
         }
-        if (res[this.resultField]) {
-          this.apiOptions = this.apiOptions.concat(res[this.resultField]);
+        const result = this.resultField.split('.');
+        if (res[result[0]]) {
+          console.log(result);
+
+          let data = res;
+          result.forEach((i) => {
+            data = this.getAttribute(data, i);
+          });
+          this.apiOptions = this.apiOptions.concat(data);
           this.updataOption(this.apiOptions);
         }
       }
     } catch (err) {
       console.log(err);
     }
+  }
+
+  private getAttribute(data: any, key: string) {
+    return data[key];
   }
 
   public setOption(option: IOption[]) {

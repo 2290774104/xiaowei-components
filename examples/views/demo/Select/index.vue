@@ -9,6 +9,7 @@
         v-model="value2"
         dataType="custom"
         :netWork="netWork"
+        resultField="data.content"
         filterable
       ></xw-select>
       当前选中的值是：{{ value2 }}
