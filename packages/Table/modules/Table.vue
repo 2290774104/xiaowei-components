@@ -205,6 +205,21 @@ export default class XwTable extends Vue {
                   h,
                 });
               }
+              if (props.type === 'image') {
+                cellContent = h(
+                  'el-image',
+                  {
+                    props: {
+                      src: cellValue,
+                      fit: 'contain',
+                    },
+                    on: {},
+                    style: { width: '100%' },
+                  },
+                  []
+                );
+              }
+              console.log(cellContent);
 
               return cellContent;
             },

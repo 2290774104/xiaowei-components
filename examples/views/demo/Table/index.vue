@@ -45,10 +45,13 @@ export default class XwTableView extends Vue {
     {
       title: '数据1',
       date: '20250722',
+      image: 'www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
     },
     {
       title: '数据2',
       date: '20250723',
+      image:
+        'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
     },
   ];
 
@@ -63,6 +66,7 @@ export default class XwTableView extends Vue {
         return '2025-07-22';
       },
     },
+    { label: '图片', prop: 'image', type: 'image' },
     { label: '插槽', prop: 'slot', customRender: 'slot' },
   ];
 

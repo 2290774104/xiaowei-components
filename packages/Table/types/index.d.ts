@@ -3,7 +3,7 @@ export declare interface IData {
 }
 
 export declare interface IColumn {
-  type?: 'selection' | 'index' | 'expand';
+  type?: 'selection' | 'index' | 'expand' | 'image';
   index?: number | ((index: number) => any);
   columnKey?: string;
   label: string;
