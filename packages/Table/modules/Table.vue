@@ -120,12 +120,17 @@ export default class XwTable extends Vue {
     if (search) {
       searchHeight = (search.$el as HTMLElement).offsetHeight;
     }
+    const operate = this.$refs.operate as HTMLElement;
+    let operateHeight = 0;
+    if (operate) {
+      operateHeight = operate.offsetHeight;
+    }
     return [
       {
         name: 'height-adaptive',
         value: {
           height: this.height,
-          topOffset: searchHeight,
+          topOffset: searchHeight || operateHeight,
           bottomOffset: this.isShowPag ? 42 : 0,
         },
       },
@@ -255,7 +260,9 @@ export default class XwTable extends Vue {
             }}
           ></XwSearch>
         ) : (
-          this.$scopedSlots.leftOperate && this.$scopedSlots.leftOperate({})
+          <div class="xw-table-left-operate" ref="operate">
+            {this.$scopedSlots.leftOperate && this.$scopedSlots.leftOperate({})}
+          </div>
         )}
         {this.renderTable ? (
           <el-table
