@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wrap" v-loading="loading">
     <xw-table
       :data="data"
       :columns="columns"
@@ -15,6 +15,11 @@
               size="small"
               placeholder="名称"
             ></el-input>
+          </el-form-item>
+          <el-form-item label="">
+            <el-button type="primary" size="small" @click="handleSearch"
+              >查询</el-button
+            >
           </el-form-item>
         </el-form>
       </template>
@@ -35,6 +40,8 @@ import { IData, IColumn, IPagination } from 'component/Table/types';
 
 @Component({ name: 'XwTableView', components: { XwTable } })
 export default class XwTableView extends Vue {
+  public loading = false;
+
   public search = {
     name: '',
   };
@@ -77,6 +84,13 @@ export default class XwTableView extends Vue {
 
   handlePageChange(page) {
     console.log(page);
+  }
+
+  public handleSearch() {
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+    }, 1000);
   }
 }
 </script>

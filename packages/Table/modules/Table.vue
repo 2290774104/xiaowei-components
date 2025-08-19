@@ -233,7 +233,6 @@ export default class XwTable extends Vue {
 
           return (
             <el-table-column
-              key={uuid()}
               {...{ props: props }}
               {...sampleScopedSlots}
             ></el-table-column>
