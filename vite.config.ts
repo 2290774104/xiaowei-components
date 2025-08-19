@@ -19,6 +19,9 @@ export default defineConfig((env: ConfigEnv): UserConfig => {
         { find: '@http', replacement: resolve(__dirname, './http/index.ts') },
       ],
     },
+    esbuild: {
+      drop: ['console', 'debugger'],
+    },
     build: {
       target: ['es2015'],
       assetsInlineLimit: 0,

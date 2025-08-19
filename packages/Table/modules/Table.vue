@@ -245,7 +245,7 @@ export default class XwTable extends Vue {
 
     return (
       <div class="xw-table">
-        {this.hasSearch && (
+        {this.hasSearch ? (
           <XwSearch
             ref="search"
             onRefresh={this.handleRefresh}
@@ -254,6 +254,8 @@ export default class XwTable extends Vue {
               default: this.$scopedSlots.search,
             }}
           ></XwSearch>
+        ) : (
+          this.$scopedSlots.leftOperate && this.$scopedSlots.leftOperate({})
         )}
         {this.renderTable ? (
           <el-table

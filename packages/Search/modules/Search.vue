@@ -17,8 +17,6 @@ export default class XwSearch extends Vue {
   public handleRefresh() {}
 
   render(h: CreateElement) {
-    console.log(this.$scopedSlots);
-
     return (
       <div class="xw-search">
         <div v-show={!this.isFold}>
