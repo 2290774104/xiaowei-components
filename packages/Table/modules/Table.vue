@@ -109,7 +109,6 @@ export default class XwTable extends Vue {
 
   private get searchHeight() {
     let height = 0;
-    console.log(this.searchRef, height);
     return height;
   }
 
@@ -224,8 +223,6 @@ export default class XwTable extends Vue {
                   []
                 );
               }
-              console.log(cellContent);
-
               return cellContent;
             },
           };
