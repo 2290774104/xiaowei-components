@@ -7,6 +7,11 @@
       :key="key"
       @page-change="handlePageChange"
     >
+      <template #expand="{ row }">
+        <div>
+          <p>这是 {{ row.title }} 的详细信息</p>
+        </div>
+      </template>
       <template #search="">
         <el-form :inline="true" :model="search" class="demo-form-inline">
           <el-form-item label="名称">
@@ -63,7 +68,8 @@ export default class XwTableView extends Vue {
   ];
 
   public columns: IColumn[] = [
-    { label: '', prop: 'selection', type: 'selection' },
+    // { label: '', prop: 'selection', type: 'selection' },
+    { label: '', prop: 'expand', type: 'expand', customRender: 'expand' },
     { label: '序号', prop: 'index', type: 'index' },
     { label: '标题', prop: 'title' },
     {
