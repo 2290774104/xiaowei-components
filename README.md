@@ -4,7 +4,7 @@
 
 > 基于 Element-ui 二次封装组件
 
-这是牛咔视频平台开发过程中基于[Element-ui]二次封装基础组件文档。可查看 [详细组件案例文档](https://2290774104.github.io/xiaowei-components/) 预览
+这是嘉兴后台管理系统开发过程中基于[Element-ui]二次封装基础组件文档。可查看 [详细组件案例文档](https://2290774104.github.io/xiaowei-components/) 预览
 
 <p align="center">
   <a href="https://github.com/vuejs/vue" target="_blank">

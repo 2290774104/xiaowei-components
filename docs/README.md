@@ -1,7 +1,7 @@
 ---
 home: true
-heroImage: /ico.png
-heroText: 牛咔视频
+# heroImage: /ico.png
+heroText: 小微组件库
 tagline: 组件文档
 actionText: 快速上手 →
 actionLink: /pages/guide/installation/
@@ -12,6 +12,6 @@ features:
     details: 通过界面样式和交互动效让用户可以清晰的感知自己的操作
   - title: 效率 Efficiency
     details: 界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。
-footer: 牛咔视频组件文档 1.0 | Copyright ©  2018 南京广播电视集团有限责任公司
+footer: 小微组件文档 1.0
 custom:
 ---

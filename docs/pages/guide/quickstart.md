@@ -2,12 +2,12 @@
 lang: zh-CN
 title: 快速开始
 date: 2025-07-18 10:30:34
-description: 牛咔组件使用指南
+description: 小微组件使用指南
 ---
 
 # 快速开始
 
-本节将介绍如何在项目中使用牛咔组件
+本节将介绍如何在项目中使用小微组件
 
 ## 完整引入
 
@@ -35,7 +35,7 @@ export default {
 };
 ```
 
-如果使用浏览器直接安装，则会在 `window` 上挂着一个对象 `XiaoweiComponents`，所有的组件会存放在这个对象中，~~手动去注册组件~~umd引入时默认全局注册所有组件
+如果使用浏览器直接安装，则会在 `window` 上挂着一个对象 `XiaoweiComponents`，所有的组件会存放在这个对象中，~~手动去注册组件~~umd 引入时默认全局注册所有组件
 
 ```js
 Vue.component('XiaoweiSteps', XiaoweiComponents.XiaoweiSteps);

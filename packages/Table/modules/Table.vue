@@ -7,7 +7,7 @@ import '../directive/height-adaptive';
 import { isBoolean, isObject, uuid } from '../../utils';
 import type { Table, TableColumn } from 'element-ui';
 import type { IColumn, IData, IPagination } from '../types';
-import XwSearch from 'component/Search/modules/Search.vue';
+import XwSearch from '../../Search/modules/Search.vue';
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 
 @Component({ name: 'XwTable', components: { XwSearch } })

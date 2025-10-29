@@ -2,7 +2,7 @@
 lang: zh-CN
 title: 安装
 date: 2025-07-18 14:51:43
-description: 牛咔组件安装指南
+description: 小微组件安装指南
 ---
 
 # 安装
